@@ -1,5 +1,5 @@
 #################################################
-#    A simple XGB model with two randomly generated predictors and a binary outcome.
+#    A simple RF model with two randomly generated predictors and a binary outcome.
 #    ROC curve is printed as the result.
 #    Plamena P. Powla
 ##################################################
@@ -14,32 +14,26 @@ library(ROCR)
 library(xgboost)
 
 
-df <- data.frame(id=1:100)
-df$A <- rnorm(100, 50, 10)
-df$B <- sample(LETTERS[1:4], 100, replace=TRUE, prob=c(.15,.25, .4, .2))
-df$C <- sample(LETTERS[1:2], 100, replace=TRUE, prob=c(.5,.5))
+df <- data.frame(id=1:50)
+df$A <- rnorm(50, 50, 10)
+df$B <- sample(LETTERS[1:4], 50, replace=TRUE, prob=c(.15,.25, .4, .2))
+df$C <- sample(LETTERS[1:2], 50, replace=TRUE, prob=c(.5,.5))
 
 
 ctrl <- trainControl(method = "CV", number = 5,
                      classProbs = TRUE, summaryFunction = twoClassSummary,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
-xgbGrid <- expand.grid(nrounds = c(20:30), 
-                       max_depth = 2:4,
-                       eta = c(0,.1,.2),
-                       colsample_bytree = 1,
-                       min_child_weight = c(0,.1),
-                       subsample = c(.9,1),
-                       gamma = c(0, .1))
+rf_grid <- expand.grid(mtry=c(1, 2))
 
-xgb_mod <- train(C ~ A + B, 
-                 data = df, method = "xgbTree", metric = "ROC",
-                 trControl = ctrl, tuneGrid = xgbGrid, 
+rf_mod <- train(C ~ A + B, 
+                 data = df, method = "rf", metric = "ROC",
+                 trControl = ctrl, tuneGrid = rf_grid, 
                  preProcess = c("center","scale"))
 
 
-xgb_mod_ev <- evalm(xgb_mod)
-xgb_mod_ev$roc
+rf_mod_ev <- evalm(rf_mod)
+rf_mod_ev$roc
 
 
 dev.copy(jpeg, filename="ROC.jpg");
