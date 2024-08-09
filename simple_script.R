@@ -20,7 +20,7 @@ df$B <- sample(LETTERS[1:4], 100, replace=TRUE, prob=c(.15,.25, .4, .2))
 df$C <- sample(LETTERS[1:2], 100, replace=TRUE, prob=c(.5,.5))
 
 
-ctrl <- trainControl(method = "LOOCV",
+ctrl <- trainControl(method = "CV", number = 5,
                      classProbs = TRUE, summaryFunction = twoClassSummary,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
