@@ -1,5 +1,5 @@
 #################################################
-#    A simple RF model with two randomly generated predictors and a binary outcome.
+#    A simple logistic regression model with two randomly generated predictors and a binary outcome.
 #    ROC curve is printed as the result.
 #    Plamena P. Powla
 ##################################################
@@ -24,16 +24,14 @@ ctrl <- trainControl(method = "CV", number = 5,
                      classProbs = TRUE, summaryFunction = twoClassSummary,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
-rf_grid <- expand.grid(mtry=c(1, 2))
-
-rf_mod <- train(C ~ A + B, 
-                 data = df, method = "rf", metric = "ROC",
-                 trControl = ctrl, tuneGrid = rf_grid, 
+glm_mod <- train(C ~ A + B, 
+                 data = df, method = "glm", metric = "ROC",
+                 trControl = ctrl,
                  preProcess = c("center","scale"))
 
 
-rf_mod_ev <- evalm(rf_mod)
-rf_mod_ev$roc
+glm_mod_ev <- evalm(glm_mod)
+glm_mod_ev$roc
 
 
 dev.copy(jpeg, filename="ROC.jpg");
