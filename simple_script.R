@@ -7,11 +7,9 @@
 library(dplyr)
 library(tidyr)
 library(tidyverse)
-library(ggplot2)
 library(caret)
 library(pROC)
 library(ROCR)
-library(randomForest)
 
 
 df <- data.frame(id=1:50)
