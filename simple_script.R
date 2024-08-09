@@ -8,9 +8,6 @@ library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(caret)
-library(pROC)
-library(ROCR)
-library(MLeval)
 
 
 df <- data.frame(id=1:50)
@@ -28,13 +25,7 @@ glm_mod <- train(C ~ A + B,
                  trControl = ctrl,
                  preProcess = c("center","scale"))
 
-
-glm_mod_ev <- evalm(glm_mod)
-glm_mod_ev$roc
-
-
-dev.copy(jpeg, filename="ROC.jpg");
-dev.off ();
+capture.output(print(glm_mod), file = "output.txt")
 
 
 
