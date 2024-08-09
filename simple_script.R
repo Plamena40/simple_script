@@ -12,10 +12,6 @@ library(caret)
 library(pROC)
 library(ROCR)
 library(xgboost)
-library(ResourceSelection)
-library(PresenceAbsence)
-
-
 
 TBI_data <- read.csv("/Users/plamena/Desktop/mimic-iv-2.2/TBI_data_all")
 
