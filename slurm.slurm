@@ -9,3 +9,5 @@
 #SBATCH --mail-user=ppetrova@iu.edu
 #SBATCH --mail-type=BEGIN,FAIL,END
 #SBATCH --partition=general
+
+srun -n 12 simple_script
