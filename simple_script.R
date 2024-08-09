@@ -45,6 +45,10 @@ xgb_mod_ev <- evalm(xgb_mod)
 xgb_mod_ev$roc
 
 
+dev.copy(jpeg, filename="ROC.jpg");
+dev.off ();
+
+
 
 
 
