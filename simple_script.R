@@ -4,29 +4,29 @@
 #    Plamena P. Powla
 ##################################################
 
-library(dplyr)
-library(tidyr)
-library(MLeval)
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("caret")
+install.packages("pROC")
+install.packages("ROCR")
+install.packages("ROSE")
+install.packages("xgboost")
+install.packages("ResourceSelection")
+install.packages("PresenceAbsence")
+
 library(dplyr)
 library(tidyr)
 library(tidyverse)
 library(ggplot2)
-library(gtsummary)
 library(caret)
 library(pROC)
 library(ROCR)
 library(ROSE)
 library(xgboost)
-library(randomForest)
 library(ResourceSelection)
 library(PresenceAbsence)
-library(ggthemes)
-library(gridExtra)
-library(sda)
-library(gam)
-library(flextable, warn.conflicts = FALSE)
-library(rms)
-library(CalibrationCurves)
 
 
 
