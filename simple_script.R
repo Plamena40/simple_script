@@ -4,18 +4,6 @@
 #    Plamena P. Powla
 ##################################################
 
-install.packages("dplyr")
-install.packages("tidyr")
-install.packages("tidyverse")
-install.packages("ggplot2")
-install.packages("caret")
-install.packages("pROC")
-install.packages("ROCR")
-install.packages("ROSE")
-install.packages("xgboost")
-install.packages("ResourceSelection")
-install.packages("PresenceAbsence")
-
 library(dplyr)
 library(tidyr)
 library(tidyverse)
