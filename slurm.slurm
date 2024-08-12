@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -J simple_script
-#SBATCH -A selewang
+#SBATCH -A r01010
 #SBATCH -o jobname_%j.txt
 #SBATCH -e jobname_%j.err
 #SBATCH --nodes=1
