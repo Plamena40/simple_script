@@ -12,4 +12,4 @@
 
 module load r/4.4.1
 
-srun simple_script.R
+sbatch simple_script.R
