@@ -12,4 +12,4 @@
 
 module load r/4.4.1
 
-srun -n 12 simple_script
+srun simple_script.R
