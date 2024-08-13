@@ -1,5 +1,5 @@
 #################################################
-#    A simple logistic regression model with generated data
+#    A simple elastic net model with generated data
 #    Model summary is printed as the result.
 #    Plamena P. Powla
 ##################################################
@@ -28,7 +28,7 @@ ctrl <- trainControl(method = "CV", number = 5,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
 glm_mod <- train(C ~ A + B, 
-                 data = df, method = "glm", metric = "ROC",
+                 data = df, method = "glmnet", metric = "ROC",
                  trControl = ctrl,
                  preProcess = c("center","scale"))
 
