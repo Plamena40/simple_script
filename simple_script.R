@@ -10,7 +10,7 @@
 library(caret)
 
 
-df <- data.frame(id=1:100000)
+df <- data.frame(id=1:1000)
 
 b0 <- -10
 b1 <- 1.5
@@ -28,8 +28,8 @@ ctrl <- trainControl(method = "CV", number = 5,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
 glm_mod <- train(C ~ A + B, 
-                 data = df, method = "glm", metric = "ROC",
-                 trControl = ctrl,
+                 data = df, method = "knn", metric = "ROC",
+                 trControl = ctrl, tuneGrid = expand.grid(k=c(100, 150, 200, 250, 300)),
                  preProcess = c("center","scale"))
 
 capture.output(print(glm_mod), file = "output.txt")
