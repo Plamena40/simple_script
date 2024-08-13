@@ -28,7 +28,7 @@ ctrl <- trainControl(method = "CV", number = 5,
                      verboseIter = T, savePredictions = T, returnResamp = "final")
 
 glm_mod <- train(C ~ A + B, 
-                 data = df, method = "glmnet", metric = "ROC",
+                 data = df, method = "knn", metric = "ROC",
                  trControl = ctrl,
                  preProcess = c("center","scale"))
 
