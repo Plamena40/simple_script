@@ -1,5 +1,5 @@
 #################################################
-#    A simple elastic net model with generated data
+#    A simple knn model with generated data
 #    Model summary is printed as the result.
 #    Plamena P. Powla
 ##################################################
