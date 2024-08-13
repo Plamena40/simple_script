@@ -6,7 +6,6 @@
 
 library(dplyr)
 library(tidyr)
-library(tidyverse)
 library(caret)
 
 
