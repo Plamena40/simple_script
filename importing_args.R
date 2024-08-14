@@ -4,22 +4,21 @@
 #    Plamena P. Powla
 ##################################################
 
-#library(dplyr)
-#library(tidyr)
-#library(tidyverse)
 library(caret)
 
+args <- commandArgs(TRUE)
 
-df <- data.frame(id=1:1000)
+
+df <- data.frame(id=1:args[1])
 
 b0 <- -10
 b1 <- 1.5
 b2 <- 2
-df$A <- rnorm(1000,0,3)
+df$A <- rnorm(args[1],0,3)
 df$B <- df$A^2
-df$e <- rnorm(1000,1,10)
+df$e <- rnorm(args[1],1,10)
 df$p <- exp(b0+b1*df$A+b2*df$B+df$e)/(1+exp(b0+b1*df$A+b2*df$B+df$e))
-df$C <- rbinom(1000,1, prob = df$p)
+df$C <- rbinom(args[1],1, prob = df$p)
 df$C <- ifelse(df$C == 1, "A", "B")
 
 
