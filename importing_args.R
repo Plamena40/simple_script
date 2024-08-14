@@ -7,18 +7,19 @@
 library(caret)
 
 args <- commandArgs(TRUE)
+n <- as.integer(args[1])
 
 
-df <- data.frame(id=1:args[1])
+df <- data.frame(id=1:n)
 
 b0 <- -10
 b1 <- 1.5
 b2 <- 2
-df$A <- rnorm(args[1],0,3)
+df$A <- rnorm(n,0,3)
 df$B <- df$A^2
-df$e <- rnorm(args[1],1,10)
+df$e <- rnorm(n,1,10)
 df$p <- exp(b0+b1*df$A+b2*df$B+df$e)/(1+exp(b0+b1*df$A+b2*df$B+df$e))
-df$C <- rbinom(args[1],1, prob = df$p)
+df$C <- rbinom(n,1, prob = df$p)
 df$C <- ifelse(df$C == 1, "A", "B")
 
 
