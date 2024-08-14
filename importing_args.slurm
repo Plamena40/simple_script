@@ -10,6 +10,6 @@
 #SBATCH --mail-type=BEGIN,FAIL,END
 #SBATCH --partition=general
 
-module load r/4.4.1; R --args 1 1000
+module load r/4.4.1; R --vanilla --args 1 1000
 
-Rscript --vanilla importing_args.R arg1
+Rscript importing_args.R arg1
