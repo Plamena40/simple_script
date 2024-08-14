@@ -12,4 +12,4 @@
 
 module load r/4.4.1 --args 1 1000
 
-Rscript --vanilla simple_script.R arg1
+Rscript --vanilla importing_args.R arg1
